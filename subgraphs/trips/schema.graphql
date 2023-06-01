@@ -1,0 +1,18 @@
+extend schema
+  @link(url: "https://specs.apollo.dev/federation/v2.3", import: ["@key"])
+
+type User @key(fields: "id") {
+  id: ID!
+  trips: [Trip]
+}
+
+type Trip @key(fields: "id") {
+  id: ID!
+  user: User!
+  purchasedProducts: [TravelProduct]
+  savedProducts: [TravelProduct]
+}
+
+interface TravelProduct @key(fields: "id") {
+  id: ID!
+}
