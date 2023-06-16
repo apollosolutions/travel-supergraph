@@ -1,4 +1,3 @@
-# noinspection GraphQLTypeRedefinition
 extend schema
   @link(url: "https://specs.apollo.dev/federation/v2.3", import: ["@key"])
 
@@ -12,8 +11,13 @@ type Flight @key(fields: "id") {
   id: ID!
   origin: Airport
   destination: Airport
+  NewEnum: mynewenum
 }
 
 type Airport @key(fields: "airportCode") {
   airportCode: ID!
+}
+
+enum mynewenum {
+  hello
 }
