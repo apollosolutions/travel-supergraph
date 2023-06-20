@@ -2,7 +2,7 @@ import { TRIPS } from "./data.js";
 import { GraphQLError } from "graphql";
 
 export const getTripById = (id) => TRIPS.find((it) => it.id === id);
-export const getTripsByUserId = (userId) => TRIPS.filter((it) => it.user.id === userId);
+export const getCurrentTripByUserId = (userId) => TRIPS.find((it) => it.user.id === userId);
 
 export const resolvers = {
   Trip: {
@@ -10,9 +10,9 @@ export const resolvers = {
       return getTripById(ref.id);
     }
   },
-  User: {
-    trips: (parent) => {
-      return getTripsByUserId(parent.id)
+  Query: {
+    currentTrip(_, args) {
+      return getCurrentTripByUserId(args.userId)
     }
   }
 };

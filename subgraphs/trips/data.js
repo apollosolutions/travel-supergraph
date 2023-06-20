@@ -4,15 +4,27 @@ export const TRIPS = [
     user: {
       id: "user:1"
     },
-    purchasedProducts: [],
-    savedProducts: []
+    products: [{
+      __typename: "Hotel",
+      id: "hotel:1"
+    }, {
+      __typename: "Flight",
+      id: "flight:1"
+    }],
   },
   {
     id: "trip:2",
     user: {
       id: "user:2"
     },
-    purchasedProducts: [],
-    savedProducts: []
+    products: [{
+      __typename: "Hotel",
+      id: "hotel:2"
+    }, {
+      __typename: "TripSuggestion",
+      trip: {
+        id: "trip:2"
+      }
+    }],
   },
 ];

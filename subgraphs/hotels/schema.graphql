@@ -8,4 +8,5 @@ type Query {
 type Hotel @key(fields: "id") {
   id: ID!
   name: String
+  reviewScore: Int
 }
