@@ -46,6 +46,18 @@ jobs:
             --name hotels \
             --schema ./subgraphs/hotels/schema.graphql
 
+      - name: Check suggestions subgraph
+        run: |
+          rover subgraph check apollo-travel-supergraph@prod \
+            --name suggestions \
+            --schema ./subgraphs/suggestions/schema.graphql
+
+      - name: Check trips subgraph
+        run: |
+          rover subgraph check apollo-travel-supergraph@prod \
+            --name trips \
+            --schema ./subgraphs/trips/schema.graphql
+
       - name: Check users subgraph
         run: |
           rover subgraph check apollo-travel-supergraph@prod \
