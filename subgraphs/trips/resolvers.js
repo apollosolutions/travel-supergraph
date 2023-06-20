@@ -1,5 +1,4 @@
 import { TRIPS } from "./data.js";
-import { GraphQLError } from "graphql";
 
 export const getTripById = (id) => TRIPS.find((it) => it.id === id);
 export const getCurrentTripByUserId = (userId) => TRIPS.find((it) => it.user.id === userId);

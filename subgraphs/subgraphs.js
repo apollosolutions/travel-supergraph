@@ -8,8 +8,8 @@ import bodyParser from 'body-parser';
 import { getHotelsSchema } from './hotels/subgraph.js';
 import { getFlightsSchema } from './flights/subgraph.js';
 import { getUsersSchema } from './users/subgraph.js';
-import {getTripsSchema} from "./trips/subgraph.js";
-import {getSuggestionsSchema} from "./suggestions/subgraph.js";
+import { getTripsSchema } from "./trips/subgraph.js";
+import { getSuggestionsSchema } from "./suggestions/subgraph.js";
 
 export const LOCAL_SUBGRAPH_CONFIG = [
   {
