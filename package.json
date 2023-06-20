@@ -3,15 +3,15 @@
   "license": "MIT",
   "type": "module",
   "scripts": {
-    "dev": "NODE_ENV=dev nodemon dev.js",
+    "dev": "npm run dev:subgraphs & npm run dev:router",
+    "dev:subgraphs": "NODE_ENV=dev nodemon dev.js",
+    "dev:router": "rover dev --supergraph-config supergraph-config-dev.yaml --router-config router-config-dev.yaml",
     "start": "node prod.js",
-    "health-check": "curl -H 'content-type: application/json' http://localhost:4000/graphql?query=%7B__typename%7D",
-    "test": "npm run test:compile && npm run test:runtime",
-    "test:runtime": "start-server-and-test dev http-get://localhost:4000/?query={__typename} health-check",
+    "test": "npm run test:compile && npm run test:compose",
+    "test:compose": "APOLLO_ELV2_LICENSE=accept rover supergraph compose --config supergraph-config-dev.yaml ",
     "test:compile": "tsc"
   },
   "dependencies": {
-    "@apollo/gateway": "^2.4.1",
     "@apollo/server": "^4.6.0",
     "@apollo/subgraph": "^2.4.1",
     "@faker-js/faker": "^8.0.2",
@@ -22,7 +22,6 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.22",
-    "start-server-and-test": "^2.0.0",
     "typescript": "^5.0.4"
   },
   "nodemonConfig": {
