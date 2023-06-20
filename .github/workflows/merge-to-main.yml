@@ -54,6 +54,40 @@ jobs:
             --name hotels \
             --schema schema.graphql
 
+  subgraph-suggestions:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install Rover
+        run: |
+          curl -sSL https://rover.apollo.dev/nix/latest | sh
+          echo "$HOME/.rover/bin" >> $GITHUB_PATH
+
+      - name: Publish subgraph schema
+        working-directory: ./subgraphs/suggestions
+        run: |
+          rover subgraph publish apollo-travel-supergraph@prod \
+            --name suggestions \
+            --schema schema.graphql
+
+  subgraph-trips:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install Rover
+        run: |
+          curl -sSL https://rover.apollo.dev/nix/latest | sh
+          echo "$HOME/.rover/bin" >> $GITHUB_PATH
+
+      - name: Publish subgraph schema
+        working-directory: ./subgraphs/trips
+        run: |
+          rover subgraph publish apollo-travel-supergraph@prod \
+            --name trips \
+            --schema schema.graphql
+
   subgraph-users:
     runs-on: ubuntu-latest
     steps:

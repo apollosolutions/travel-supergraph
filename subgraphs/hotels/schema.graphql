@@ -1,4 +1,3 @@
-# noinspection GraphQLTypeRedefinition
 extend schema
   @link(url: "https://specs.apollo.dev/federation/v2.3", import: ["@key"])
 
@@ -9,4 +8,5 @@ type Query {
 type Hotel @key(fields: "id") {
   id: ID!
   name: String
+  reviewScore: Int
 }
