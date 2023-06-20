@@ -15,6 +15,7 @@ If you would like to run some sample operations, checkout the public (TODO: Link
 ### Other libraries used
 * [@apollo/server](https://www.apollographql.com/docs/apollo-server)
 * [@apollo/subgraph](https://www.apollographql.com/docs/apollo-server/using-federation/api/apollo-subgraph/)
+* [Apollo Router](https://www.apollographql.com/docs/router)
 
 ## Local Development
 If you want to run this supergraph locally you can clone this [GitHub repo](https://github.com/apollosolutions/travel-supergraph) and follow the instructions in [DEV.md](./DEV.md).
