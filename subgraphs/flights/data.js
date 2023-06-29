@@ -1,6 +1,6 @@
 export const FLIGHTS = [
   {
-    id: "flights:1",
+    id: "flight:1",
     origin: {
       airportCode: "SEA"
     },
@@ -9,7 +9,7 @@ export const FLIGHTS = [
     }
   },
   {
-    id: "flights:2",
+    id: "flight:2",
     origin: {
       airportCode: "SFO"
     },
@@ -17,13 +17,4 @@ export const FLIGHTS = [
       airportCode: "SEA"
     }
   },
-];
-
-export const AIRPORTS = [
-  {
-    airportCode: "SEA",
-  },
-  {
-    airportCode: "SFO",
-  }
 ];
