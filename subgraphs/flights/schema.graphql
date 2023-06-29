@@ -2,9 +2,7 @@ extend schema
   @link(url: "https://specs.apollo.dev/federation/v2.3", import: ["@key"])
 
 type Query {
-  # Probably can delete, only here for initial testing
   allFlights: [Flight]
-  allAirports: [Airport]
 }
 
 type Flight @key(fields: "id") {
@@ -13,6 +11,6 @@ type Flight @key(fields: "id") {
   destination: Airport
 }
 
-type Airport @key(fields: "airportCode") {
-  airportCode: ID!
+type Airport {
+  airportCode: String!
 }

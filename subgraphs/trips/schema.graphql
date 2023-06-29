@@ -5,7 +5,7 @@ type Query {
   currentTrip(userId: ID!): Trip
 }
 
-type Trip {
+type Trip @key(fields: "id") {
   id: ID!
   user: User
   products: [TripsPageResult]
