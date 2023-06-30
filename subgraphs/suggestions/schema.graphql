@@ -1,5 +1,5 @@
 extend schema
-  @link(url: "https://specs.apollo.dev/federation/v2.3", import: ["@key", "@requires", "@external"])
+  @link(url: "https://specs.apollo.dev/federation/v2.3", import: ["@key"])
 
 type TripSuggestion @key(fields: "trip { id }") {
   trip: Trip
