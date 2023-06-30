@@ -6,6 +6,11 @@ export const FLIGHTS = [
     },
     destination: {
       airportCode: "SFO"
+    },
+    price: {
+      amount: 225,
+      formatted: "$225",
+      currency: "$"
     }
   },
   {
@@ -15,6 +20,11 @@ export const FLIGHTS = [
     },
     destination: {
       airportCode: "SEA"
+    },
+    price: {
+      amount: 230,
+      formatted: "$230",
+      currency: "$"
     }
   },
 ];
