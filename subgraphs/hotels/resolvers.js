@@ -10,7 +10,6 @@ export const resolvers = {
   Hotel: {
     __resolveReference(ref) {
       return getHotelById(ref.id);
-    },
-    reviewScore: () => faker.number.int({ min: 0, max: 100})
+    }
   }
 };
