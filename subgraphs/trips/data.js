@@ -10,6 +10,11 @@ export const TRIPS = [
     }, {
       __typename: "Flight",
       id: "flight:1"
+    }, {
+      __typename: "TripSuggestion",
+      trip: {
+        id: "trip:1"
+      }
     }],
   },
   {
