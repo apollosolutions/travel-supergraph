@@ -5,6 +5,10 @@ import { startSubgraphs } from './subgraphs/subgraphs.js';
 // See supergraph-config-dev.yaml for config setup
 (async () => {
   // start subgraphs in monolith mode
-  // If you change this port, update rover dev config
-  await startSubgraphs(4001);
+  let port = undefined;
+  if (process.env.NODE_ENV === 'dev') {
+    // If you change this port for local dev, update rover dev config
+    port = 4001;
+  }
+  await startSubgraphs(port);
 })();
