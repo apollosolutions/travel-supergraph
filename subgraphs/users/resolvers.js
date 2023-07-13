@@ -1,5 +1,6 @@
 import { USERS } from "./data.js";
 import { GraphQLError } from "graphql";
+import { faker } from "@faker-js/faker";
 
 export const getUserById = (id) => USERS.find((it) => it.id === id);
 
@@ -20,6 +21,7 @@ export const resolvers = {
   User: {
     __resolveReference(ref) {
       return getUserById(ref.id);
-    }
+    },
+    email: () => faker.internet.email()
   }
 };
