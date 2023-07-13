@@ -1,16 +1,16 @@
 # Apollo GraphOS for Travel
 
-This repo provides a demonstration supergraph for a financial services company. You can explore the schema and run queries against it in [Apollo Studio](https://studio.apollographql.com/public/apollo-financial-supergraph/home?variant=prod). We encourage you to also use the schema as inspiration for your own financial supergraph!
+This repo provides a demonstration supergraph for a travel company. You can explore the schema and run queries against it in [Apollo Studio](https://studio.apollographql.com/public/apollo-travel-supergraph/variant/prod/home). We encourage you to also use the schema as inspiration for your own travel supergraph!
 
 ## View the schema
 This demo is published to the [Apollo Solutions](https://studio.apollographql.com/org/apollo-solutions) GraphOS
 org with the graph
 id [apollo-travel-supergraph](https://studio.apollographql.com/graph/apollo-travel-supergraph).
 
-You can also view and share the [public variant](https://studio.apollographql.com/public/apollo-travel-supergraph/home?variant=prod) to run queries right from Explorer.
+You can also view and share the [public variant](https://studio.apollographql.com/public/apollo-travel-supergraph/variant/prod/home) to run queries right from Explorer.
 
 ## What's Inside
-If you would like to run some sample operations, checkout the public (TODO: Link here)(Operation Collections) in Explorer.
+If you would like to run some sample operations, checkout the public [Operation Collections](https://studio.apollographql.com/public/apollo-travel-supergraph/variant/prod/explorer?collectionId=3df9423a-a505-4059-956e-1cfa57b7e032&focusCollectionId=3df9423a-a505-4059-956e-1cfa57b7e032) in Explorer.
 
 ### Other libraries used
 * [@apollo/server](https://www.apollographql.com/docs/apollo-server)
