@@ -2,7 +2,7 @@ extend schema
   @link(url: "https://specs.apollo.dev/federation/v2.3", import: ["@key"])
 
 type Query {
-  currentTrip(userId: ID!): Trip
+  currentTrips(userId: ID!): Trip
 }
 
 type Trip @key(fields: "id") {
