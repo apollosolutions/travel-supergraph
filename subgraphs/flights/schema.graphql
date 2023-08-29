@@ -4,7 +4,7 @@ extend schema
     import:["@key", "@shareable", "@composeDirective"]
   )
   @link(url: "https://myspecs.dev/myDirective1/v1.0", import: ["@myDirective1"])
-  @link(url: "https://myspecs.dev/myDirective2/v1.0", import: ["@myDirective1"])
+  @link(url: "https://myspecs.dev/myDirective2/v1.0", import: ["@myDirective2"])
   @composeDirective(name: "@myDirective1")
   @composeDirective(name: "@myDirective2")
 
