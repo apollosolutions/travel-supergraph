@@ -5,8 +5,8 @@ extend schema
   )
   @link(url: "https://myspecs.dev/myDirective1/v1.0", import: ["@myDirective1"])
   @link(url: "https://myspecs.dev/myDirective2/v1.0", import: ["@myDirective1"])
-  @composeDirective(name: "myDirective1")
-  @composeDirective(name: "myDirective2")
+  @composeDirective(name: "@myDirective1")
+  @composeDirective(name: "@myDirective2")
 
 directive @myDirective1(input: [String!]) on FIELD_DEFINITION
 directive @myDirective2(input: [MyDirectiveInput!]) on FIELD_DEFINITION
