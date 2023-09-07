@@ -3,8 +3,8 @@ name: pr-check-code
 on: pull_request
 
 env:
-  APOLLO_KEY: ${{ secrets.APOLLO_KEY }}
   APOLLO_VCS_COMMIT: ${{ github.event.pull_request.head.sha }}
+  APOLLO_GRAPH_REF: "apollo-travel-supergraph@prod"
 
 jobs:
   npm-build:
@@ -13,16 +13,13 @@ jobs:
       CI: true
     steps:
       - uses: actions/checkout@v3
-
+      
       - uses: actions/setup-node@v3
         with:
           node-version-file: '.nvmrc'
           cache: "npm"
 
-      - name: Install Rover
-        run: |
-          curl -sSL https://rover.apollo.dev/nix/latest | sh
-          echo "$HOME/.rover/bin" >> $GITHUB_PATH
+      - uses: apollosolutions/rover-actions/install-rover-cli@v1
 
       - run: npm ci
 
@@ -33,37 +30,44 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Install Rover
-        run: |
-          curl -sSL https://rover.apollo.dev/nix/latest | sh
-          echo "$HOME/.rover/bin" >> $GITHUB_PATH
+      - uses: apollosolutions/rover-actions/install-rover-cli@v1
 
       - name: Check flights subgraph
-        run: |
-          rover subgraph check apollo-travel-supergraph@prod \
-            --name flights \
-            --schema ./subgraphs/flights/schema.graphql
+        uses: apollosolutions/rover-actions/subgraph-check@v1
+        with:
+          apollo-key: ${{ secrets.APOLLO_KEY }}
+          graph-ref: ${{ env.APOLLO_GRAPH_REF }}
+          name: flights
+          schema: ./subgraphs/flights/schema.graphql
 
       - name: Check hotels subgraph
-        run: |
-          rover subgraph check apollo-travel-supergraph@prod \
-            --name hotels \
-            --schema ./subgraphs/hotels/schema.graphql
+        uses: apollosolutions/rover-actions/subgraph-check@v1
+        with:
+          apollo-key: ${{ secrets.APOLLO_KEY }}
+          graph-ref: ${{ env.APOLLO_GRAPH_REF }}
+          name: hotels
+          schema: ./subgraphs/hotels/schema.graphql
 
       - name: Check suggestions subgraph
-        run: |
-          rover subgraph check apollo-travel-supergraph@prod \
-            --name suggestions \
-            --schema ./subgraphs/suggestions/schema.graphql
+        uses: apollosolutions/rover-actions/subgraph-check@v1
+        with:
+          apollo-key: ${{ secrets.APOLLO_KEY }}
+          graph-ref: ${{ env.APOLLO_GRAPH_REF }}
+          name: suggestions
+          schema: ./subgraphs/suggestions/schema.graphql
 
       - name: Check trips subgraph
-        run: |
-          rover subgraph check apollo-travel-supergraph@prod \
-            --name trips \
-            --schema ./subgraphs/trips/schema.graphql
+        uses: apollosolutions/rover-actions/subgraph-check@v1
+        with:
+          apollo-key: ${{ secrets.APOLLO_KEY }}
+          graph-ref: ${{ env.APOLLO_GRAPH_REF }}
+          name: trips
+          schema: ./subgraphs/trips/schema.graphql
 
       - name: Check users subgraph
-        run: |
-          rover subgraph check apollo-travel-supergraph@prod \
-            --name users \
-            --schema ./subgraphs/users/schema.graphql
+        uses: apollosolutions/rover-actions/subgraph-check@v1
+        with:
+          apollo-key: ${{ secrets.APOLLO_KEY }}
+          graph-ref: ${{ env.APOLLO_GRAPH_REF }}
+          name: users
+          schema: ./subgraphs/users/schema.graphql
