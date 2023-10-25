@@ -20,7 +20,7 @@ type Query {
   allFlights: [Flight] @myDirective1(input: ["hello", "world"]) @myDirective2(input: {foo: "hello" bar: ["world"]})
 }
 
-type Flight @key(fields: "id") {
+type Flight @shareable @key(fields: "id") {
   id: ID!
   price: Price
   origin: Airport
