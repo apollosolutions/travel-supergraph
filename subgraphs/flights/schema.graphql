@@ -1,5 +1,8 @@
 extend schema
-  @link(url: "https://specs.apollo.dev/federation/v2.5", import:["@key", "@shareable"])
+  @link(url: "https://specs.apollo.dev/federation/v2.5", import:["@key", "@shareable", "@composeDirective"])
+  @composeDirective(name: "myAPI")
+
+directive @myAPI on FIELD_DEFINITION
 
 input MyDirectiveInput {
   foo: String
@@ -7,7 +10,7 @@ input MyDirectiveInput {
 }
 
 type Query {
-  allFlights: [Flight]
+  allFlights: [Flight] @myAPI
 }
 
 type Flight @key(fields: "id") {

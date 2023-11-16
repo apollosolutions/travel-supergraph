@@ -6,3 +6,13 @@ headers:
     request:
       - propagate:
           matching: .*
+
+include_subgraph_errors:
+  all: true
+telemetry:
+  apollo:
+    errors:
+      subgraph:
+        all:
+          send: true
+          redact: false
