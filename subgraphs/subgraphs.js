@@ -1,6 +1,7 @@
 import { expressMiddleware } from '@apollo/server/express4';
 import { ApolloServer } from '@apollo/server';
 import { ApolloServerPluginDrainHttpServer } from '@apollo/server/plugin/drainHttpServer';
+import { ApolloServerPluginUsageReportingDisabled } from '@apollo/server/plugin/disabled';
 import express from 'express';
 import http from 'http';
 import cors from 'cors';
@@ -10,6 +11,7 @@ import { getFlightsSchema } from './flights/subgraph.js';
 import { getUsersSchema } from './users/subgraph.js';
 import { getTripsSchema } from "./trips/subgraph.js";
 import { getSuggestionsSchema } from "./suggestions/subgraph.js";
+
 
 export const LOCAL_SUBGRAPH_CONFIG = [
   {
@@ -50,7 +52,10 @@ export const startSubgraphs = async (httpPort) => {
       schema: subgraphConfig.schema,
       // For a real subgraph introspection should be disabled, for the demo we have left on
       introspection: true,
-      plugins: [ApolloServerPluginDrainHttpServer({ httpServer })]
+      plugins: [
+        ApolloServerPluginDrainHttpServer({ httpServer }),
+        ApolloServerPluginUsageReportingDisabled()
+      ]
     });
 
     await server.start();
