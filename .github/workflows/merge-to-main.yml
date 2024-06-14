@@ -26,15 +26,12 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Install Rover
-        run: |
-          curl -sSL https://rover.apollo.dev/nix/latest | sh
-          echo "$HOME/.rover/bin" >> $GITHUB_PATH
+      - uses: apollosolutions/rover-actions/install-rover-cli@v1
 
       - name: Publish subgraph schema
         working-directory: ./subgraphs/flights
         run: |
-          rover subgraph publish apollo-travel-supergraph@prod \
+          rover subgraph publish ${{ vars.APOLLO_GRAPH_REF }} \
             --name flights \
             --schema schema.graphql
 
@@ -43,15 +40,12 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Install Rover
-        run: |
-          curl -sSL https://rover.apollo.dev/nix/latest | sh
-          echo "$HOME/.rover/bin" >> $GITHUB_PATH
+      - uses: apollosolutions/rover-actions/install-rover-cli@v1
 
       - name: Publish subgraph schema
         working-directory: ./subgraphs/hotels
         run: |
-          rover subgraph publish apollo-travel-supergraph@prod \
+          rover subgraph publish ${{ vars.APOLLO_GRAPH_REF }} \
             --name hotels \
             --schema schema.graphql
 
@@ -60,15 +54,12 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Install Rover
-        run: |
-          curl -sSL https://rover.apollo.dev/nix/latest | sh
-          echo "$HOME/.rover/bin" >> $GITHUB_PATH
+      - uses: apollosolutions/rover-actions/install-rover-cli@v1
 
       - name: Publish subgraph schema
         working-directory: ./subgraphs/suggestions
         run: |
-          rover subgraph publish apollo-travel-supergraph@prod \
+          rover subgraph publish ${{ vars.APOLLO_GRAPH_REF }} \
             --name suggestions \
             --schema schema.graphql
 
@@ -77,15 +68,12 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Install Rover
-        run: |
-          curl -sSL https://rover.apollo.dev/nix/latest | sh
-          echo "$HOME/.rover/bin" >> $GITHUB_PATH
+      - uses: apollosolutions/rover-actions/install-rover-cli@v1
 
       - name: Publish subgraph schema
         working-directory: ./subgraphs/trips
         run: |
-          rover subgraph publish apollo-travel-supergraph@prod \
+          rover subgraph publish ${{ vars.APOLLO_GRAPH_REF }} \
             --name trips \
             --schema schema.graphql
 
@@ -94,15 +82,12 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Install Rover
-        run: |
-          curl -sSL https://rover.apollo.dev/nix/latest | sh
-          echo "$HOME/.rover/bin" >> $GITHUB_PATH
+      - uses: apollosolutions/rover-actions/install-rover-cli@v1
 
       - name: Publish subgraph schema
         working-directory: ./subgraphs/users
         run: |
-          rover subgraph publish apollo-travel-supergraph@prod \
+          rover subgraph publish ${{ vars.APOLLO_GRAPH_REF }} \
             --name users \
             --schema schema.graphql
 
@@ -111,10 +96,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Install Rover
-        run: |
-          curl -sSL https://rover.apollo.dev/nix/latest | sh
-          echo "$HOME/.rover/bin" >> $GITHUB_PATH
+      - uses: apollosolutions/rover-actions/install-rover-cli@v1
 
       - name: Publish README
-        run: rover readme publish apollo-travel-supergraph@prod --file README.md
+        run: rover readme publish ${{ vars.APOLLO_GRAPH_REF }} --file README.md
